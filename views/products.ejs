@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <a href="/products" class="btn btn-success mb-3">Add Product</a>
+    <div class="row">
+      <% for(let i=0; i<products.length; i++){ %>
+        <div class="col-sm-4 card card-body">
+          <div>
+            <h1><%- products[i].name %></h1>
+            <h2>Total Products: <%- products[i].amount %></h2>
+            <h2>Details: <%- products[i].details %></h2>
+            <a href="/products/<%- products[i]._id %>" class="btn btn-primary">Edit</a>
+            <a href="/products/delete/<%- products[i]._id %>" onclick="return confirm('Are you sure to delete this product?');" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

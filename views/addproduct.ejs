@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-5 m-auto">
+        <a href="/products/list" class="btn btn-danger">All Products</a>
+        <form action="/products" method="POST">
+          <input type="hidden" name="_id" value="<%- product._id %>">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%- product.name %>" placeholder="Porduct Name">
+            <% if(product.nameError){ %>
+            <div class="text-danger"><%- product.nameError %></div>
+            <% } %>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" value="<%- product.amount %>" placeholder="Total Amount">
+            <% if(product.amountError){ %>
+            <div class="text-danger"><%- product.amountError %></div>
+            <% } %>
+          </div>
+          <div class="form-group">
+            <label for="details">Details</label>
+            <textarea name="details" id="details" class="form-control" value="<%- product.details %>" cols="30" rows="10"></textarea>
+            <% if(product.detailsError){ %>
+            <div class="text-danger"><%- product.detailsError %></div>
+            <% } %>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
